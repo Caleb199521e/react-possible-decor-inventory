@@ -1,0 +1,45 @@
+/* Card */
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-title {
+    color: #4a5568;
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .card-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .card-change {
+    font-size: 14px;
+  }
+  
+  .card-change.green {
+    color: #48bb78;
+  }
+  
+  .card-change.red {
+    color: #f56565;
+  }
+  
+  .card-icon {
+    font-size: 30px;
+    color: #7c3aed;
+  }
+  

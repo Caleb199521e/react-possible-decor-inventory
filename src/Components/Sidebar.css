@@ -1,0 +1,40 @@
+.sidebar {
+    background-color: #1a202c;
+    color: white;
+    width: 250px;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar nav ul li {
+    margin: 15px 0;
+  }
+  
+  .sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .sidebar nav ul li a.active {
+    color: #7c3aed;
+  }
+  
+  .logout {
+    margin-top: 30px;
+  }
+  
+  .logout a {
+    color: #f56565;
+    text-decoration: none;
+  }

@@ -1,8 +1,8 @@
 // Dashboard.jsx
 import React from "react";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
-import Card from "./Card";
+import Sidebar from "../Components/Sidebar
+import Header from "../Components/Header";
+import Card from "../Components/Card";
 
 export default function Dashboard() {
   return (
