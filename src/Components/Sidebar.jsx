@@ -1,5 +1,7 @@
 // Sidebar.jsx
 import React from "react";
+import { Link } from "react-router-dom";
+import "../Components/Sidebar.css";
 
 export default function Sidebar() {
   return (
@@ -8,30 +10,32 @@ export default function Sidebar() {
       <nav>
         <ul>
           <li>
-            <a href="#" className="active">🏠 Dashboard</a>
+            <Link to="/dashboard" className="active">
+              🏠 Dashboard
+            </Link>
           </li>
           <li>
-            <a href="#">📦 Products</a>
+            <Link to="/products">Products</Link>
           </li>
           <li>
-            <a href="#">📁 Categories</a>
+            <Link to="/categories">Categories</Link>
           </li>
           <li>
-            <a href="#">🛒 Orders</a>
+            <Link to="/orders">Orders</Link>
           </li>
           <li>
-            <a href="#">📝 Purchases</a>
+            <Link to="/purchases">Purchases</Link>
           </li>
           <li>
-            <a href="#">📊 Reports</a>
+            <Link to="/reports">Reports</Link>
           </li>
           <li>
-            <a href="#">⚙️ Settings</a>
+            <Link to="/settings">Settings</Link>
           </li>
         </ul>
       </nav>
       <div className="logout">
-        <a href="#">🔓 Logout</a>
+        <Link to="/logout">Logout</Link>
       </div>
     </div>
   );

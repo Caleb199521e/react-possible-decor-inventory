@@ -1,6 +1,6 @@
 // Dashboard.jsx
 import React from "react";
-import Sidebar from "../Components/Sidebar
+import Sidebar from "../Components/Sidebar";
 import Header from "../Components/Header";
 import Card from "../Components/Card";
 
