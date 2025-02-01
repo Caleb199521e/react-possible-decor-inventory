@@ -18,6 +18,7 @@ export default function Dashboard() {
 
         {/* Dashboard Content */}
         <main className="content">
+          
           {/* Cards Section */}
           <div className="cards-section">
             <Card
@@ -51,6 +52,7 @@ export default function Dashboard() {
           </div>
 
           {/* Add chart, tables, and other sections here */}
+          
         </main>
       </div>
     </div>
