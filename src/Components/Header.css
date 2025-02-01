@@ -1,10 +1,18 @@
-header {
-    background-color: white;
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    width: 100%;
+  }
+
+  
+
+  .profile-ntn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
   
   .search-bar {
@@ -14,10 +22,11 @@ header {
     border-radius: 5px;
   }
   
-  .header-right {
+  .header-top {
     display: flex;
     align-items: center;
     gap: 15px;
+    justify-content: space-between;
   }
   
   .notification-btn {
@@ -37,4 +46,11 @@ header {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+  }
+  .header-down {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #fdfdfd;
+    
   }
