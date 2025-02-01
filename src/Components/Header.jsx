@@ -1,6 +1,7 @@
 // Header.jsx
 import React from "react";
 import { Notifications, CalendarToday } from "@mui/icons-material";
+import Avatar from "@mui/material/Avatar";
 import "./Header.css";
 export default function Header() {
   return (
@@ -15,8 +16,15 @@ export default function Header() {
             <Notifications sx={{ color: "gray", fontSize: 25 }} />
             </button>
             <div className="profile">
-              <img src="#" alt="Profile" className="profile-pic" />
-              <span>Manager</span>
+            <Avatar
+              alt="Pamela"
+              src="https://via.placeholder.com/150"
+              sx={{ width: 40, height: 40 }}
+            />
+            <div className="profile-text">
+                <p>Pamela PB</p>
+                <span>Manager</span>
+            </div>
             </div>
           </div>
         
