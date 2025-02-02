@@ -2,9 +2,10 @@
   background-color: #1a202c;
   color: white;
   width: 250px;
-  height: 100vh;
+  /* min-height: 100vh; */
+  height: 100%;
   padding: 20px;
-  /* position: fixed; */
+ position: fixed;
 }
 
 .logo {

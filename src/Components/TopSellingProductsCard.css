@@ -1,0 +1,50 @@
+/* TopSellingProductsCard.css */
+.top-selling-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .top-selling-card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .top-selling-card table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .top-selling-card table th,
+  .top-selling-card table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .top-selling-card table th {
+    background-color: #f9fafb;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .product-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .product-cell img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .product-cell span {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  

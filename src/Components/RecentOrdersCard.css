@@ -1,0 +1,87 @@
+.recent-orders-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .recent-orders-card .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .recent-orders-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .view-all-btn {
+    font-size: 12px;
+    text-transform: none;
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .orders-table th, .orders-table td {
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .orders-table th {
+    background: #f7f9fc;
+    font-weight: bold;
+    color: #6c757d;
+  }
+  
+  .orders-table td {
+    border-bottom: 1px solid #f1f3f5;
+  }
+  
+  .orders-table img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  
+  .orders-table .status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .orders-table .status.delivered {
+    background: #e6ffed;
+    color: #38a169;
+  }
+  
+  .orders-table .status.processing {
+    background: #fefcbf;
+    color: #d69e2e;
+  }
+  
+  .edit-btn, .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .edit-btn {
+    color: #3182ce;
+    margin-right: 5px;
+  }
+  
+  .delete-btn {
+    color: #e53e3e;
+  }
+  

@@ -2,10 +2,37 @@ import React from "react";
 import Sidebar from "../Components/Sidebar";
 import Header from "../Components/Header";
 import Card from "../Components/Card";
+import SalesPurchaseCard from "../Components/SalesPurchaseCard";
+import TopSellingProductsCard from "../Components/TopSellingProductsCard";
+import RecentOrdersCard from "../Components/RecentOrdersCard";
+import ProductSummaryCard from "../Components/ProductSummaryCard";
+import StockAlertCard from "../Components/StockAlertCard";
 import { AttachMoney, LocalShipping, NewReleases, Category } from "@mui/icons-material";
 import "./Dashboard.css";
 
 export default function Dashboard() {
+  const topSellingProducts = [
+    {
+      name: "Wall Paper",
+      price: "$299",
+      orders: 34,
+      stock: 510,
+      image: "https://via.placeholder.com/50",
+    },
+    {
+      name: "Flower",
+      price: "$500",
+      orders: 28,
+      stock: 417,
+      image: "https://via.placeholder.com/50",
+    },
+    // Add more products here
+  ];
+
+  const totalStock = 2000;
+  const inStock = 1500;
+  const toBeReceived = 500;
+
   return (
     <div className="dashboard">
       {/* Sidebar */}
@@ -52,6 +79,23 @@ export default function Dashboard() {
           </div>
 
           {/* Add chart, tables, and other sections here */}
+          <div className="charts-section">
+            <SalesPurchaseCard />
+            <TopSellingProductsCard products={topSellingProducts} />
+          </div>
+          
+          <div className="recent-orders-card">
+          <RecentOrdersCard />
+          </div>
+
+          <div className="bottom-section">
+            <StockAlertCard />
+            <ProductSummaryCard
+               totalStock={totalStock}
+              inStock={inStock}
+              toBeReceived={toBeReceived}
+          />
+          </div>
           
         </main>
       </div>
