@@ -7,7 +7,14 @@ import TopSellingProductsCard from "../Components/TopSellingProductsCard";
 import RecentOrdersCard from "../Components/RecentOrdersCard";
 import ProductSummaryCard from "../Components/ProductSummaryCard";
 import StockAlertCard from "../Components/StockAlertCard";
-import { AttachMoney, LocalShipping, NewReleases, Category } from "@mui/icons-material";
+import { AttachMoney, 
+        LocalShipping, 
+        NewReleases, 
+        Category,
+        CalendarToday
+ } 
+ from "@mui/icons-material";
+
 import "./Dashboard.css";
 
 export default function Dashboard() {
@@ -43,9 +50,21 @@ export default function Dashboard() {
         {/* Header */}
         <Header />
 
+
         {/* Dashboard Content */}
         <main className="content">
+          <div className="header-down">
+                  
+                  <p>Activity</p>
           
+                  <div className="weekly">
+                  <span>
+                    <CalendarToday fontSize="small" /> 10 Dec - 16 Dec
+                  </span>
+                  <span>Weekly</span>
+                  </div>
+                  
+                </div>
           {/* Cards Section */}
           <div className="cards-section">
             <Card

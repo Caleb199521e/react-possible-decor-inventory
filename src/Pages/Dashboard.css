@@ -15,7 +15,21 @@
   margin: 0;
   margin-left: 300px;
 }
-
+.header-down {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color:black;
+  justify-content: space-between;
+  padding: 0px 20px ;
+  
+}
+.weekly {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+}
 /* Cards Section */
 .content {
   /* display: grid;

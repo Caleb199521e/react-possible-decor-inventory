@@ -1,6 +1,6 @@
 // Header.jsx
 import React from "react";
-import { Notifications, CalendarToday } from "@mui/icons-material";
+import { Notifications } from "@mui/icons-material";
 import Avatar from "@mui/material/Avatar";
 import "./Header.css";
 export default function Header() {
@@ -29,7 +29,7 @@ export default function Header() {
           </div>
         
       </div>
-      <div className="header-down">
+      {/* <div className="header-down">
         
         <p>Activity</p>
 
@@ -40,7 +40,7 @@ export default function Header() {
         <span>Weekly</span>
         </div>
         
-      </div>
+      </div> */}
     </div>
   );
 }
