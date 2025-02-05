@@ -47,6 +47,7 @@ const RecentOrdersCard = () => {
       <table className="orders-table">
         <thead>
           <tr>
+            <th></th>
             <th>Product</th>
             <th>Order ID</th>
             <th>Customer Name</th>
@@ -60,6 +61,9 @@ const RecentOrdersCard = () => {
         <tbody>
           {orders.map((order, index) => (
             <tr key={index}>
+               <td>
+                      <input type="checkbox" />
+              </td>
               <td>
                 <img src={order.productImage} alt={order.productName} />
                 {order.productName}

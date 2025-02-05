@@ -1,0 +1,153 @@
+/* General Layout */
+.products-page-layout {
+    display: flex;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    /* padding: 20px; */
+    background-color: #f9f9f9;
+    margin-left: 300px;
+  }
+  .products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-top: 20px;
+
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 300px;
+  }
+  
+  .search-icon {
+    color: #aaa;
+    margin-right: 5px;
+  }
+  
+  .search-bar {
+    border: none;
+    outline: none;
+    /* width: 100%; */
+    font-size: 14px;
+  }
+  
+  .add-new-btn {
+    padding: 10px 20px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-new-btn:hover {
+    background-color: #574bd7;
+  }
+  
+  /* Table Styling */
+  .products-table {
+    margin-top: 10px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: #f4f4f4;
+  }
+  
+  thead th {
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  tbody tr {
+    border-bottom: 1px solid #eee;
+  }
+  
+  tbody tr:hover {
+    background-color: #fafafa;
+  }
+  
+  td {
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .product-details {
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-details img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .action-buttons button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+  }
+  
+  .view-btn {
+    color: #6c63ff;
+  }
+  
+  .edit-btn {
+    color: #4caf50;
+  }
+  
+  .delete-btn {
+    color: #f44336;
+  }
+  
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    gap: 5px;
+  }
+  
+  .pagination button {
+    padding: 8px 12px;
+    background-color: #f4f4f4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .pagination button.active {
+    background-color: #6c63ff;
+    color: white;
+  }
