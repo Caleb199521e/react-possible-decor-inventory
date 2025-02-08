@@ -38,7 +38,7 @@ export default function Products() {
     <div className="products-page-layout">
       <Sidebar />
       <div className="main-content">
-        <Header title="Products" breadcrumb="Dashboard > Products" />
+        <Header/>
         
         <div className="products-page">
           <div className="products-header">

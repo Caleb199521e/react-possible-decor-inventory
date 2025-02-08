@@ -8,7 +8,8 @@
     flex: 1;
     padding: 20px;
     background-color: #f5f7fa;
-    margin-left: 300px;
+    /* margin-left: 300px; */
+    margin-top: 20px;
 }
 
 .categories-header {
