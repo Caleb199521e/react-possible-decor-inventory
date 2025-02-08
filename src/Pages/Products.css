@@ -8,6 +8,7 @@ General Layout
     /* padding: 20px; */
     background-color: #f9f9f9;
     margin-left: 300px;
+    margin-top:20px;
   }
   .products-header {
     display: flex;
@@ -55,7 +56,7 @@ General Layout
   
   /* Table Styling */
   .products-table {
-    margin-top: 10px;
+    margin-top: 30px;
     background: white;
     border-radius: 10px;
     padding: 20px;
