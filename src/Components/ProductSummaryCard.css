@@ -1,54 +1,93 @@
+/* CSS Variables */
+:root {
+  --card-bg: white;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --text-primary: #4a4a4a;
+  --text-secondary: gray;
+  --accent-color: #7c3aed;
+  --border-radius: 8px;
+  --spacing-sm: 5px;
+  --spacing-md: 20px;
+}
+
+/* Card Base */
 .product-summary-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .product-summary-card h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  padding: var(--spacing-md);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.product-summary-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+/* Chart Section */
+.chart-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto; /* Center the chart horizontally */
+}
+
+.chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px; /* Adjust font size as needed */
+  font-weight: bold;
+  color: var(--text-primary);
+  text-align: center; /* Ensure text alignment is centered */
+}
+
+/* Summary Details */
+.summary-details {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: var(--spacing-md);
+}
+
+.summary-details div {
+  text-align: center;
+}
+
+.summary-details h4 {
+  font-size: 20px;
+  color: var(--accent-color);
+  margin: var(--spacing-sm) 0;
+}
+
+.summary-details p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .summary-details {
+    flex-direction: column;
+    gap: var(--spacing-sm);
   }
   
   .chart-container {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto; /* Center the chart horizontally */
+    width: 120px;
+    height: 120px;
   }
   
   .chart-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px; /* Adjust font size as needed */
-    font-weight: bold;
-    color: #4a4a4a;
-    text-align: center; /* Ensure text alignment is centered */
-        
+    font-size: 16px;
   }
-  
-  
-  .summary-details {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .summary-details div {
-    text-align: center;
-  }
-  
-  .summary-details h4 {
-    font-size: 20px;
-    color: #7c3aed;
-    margin: 5px 0;
-  }
-  
-  .summary-details p {
-    font-size: 14px;
-    color: gray;
-  }
-  
+}

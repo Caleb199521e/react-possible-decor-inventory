@@ -1,16 +1,39 @@
-/* Import Montserrat font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+/* Import Montserrat font with additional weights for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* CSS Reset and Global Variables */
+:root {
+  --bg-color: rgb(231, 223, 223);
+  --text-color: #333;
+  --font-primary: 'Montserrat', sans-serif;
+  --font-code: 'Montserrat', monospace;
+}
+
+/* Reset box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 html, body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif; /* Use Montserrat as the only font */
+  padding: 0;
+  font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(231, 223, 223);
-  padding: 0;
-  /* overflow: hidden; */
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
 code {
-  font-family: 'Montserrat', monospace; /* Optional if you want Montserrat for code as well */
+  font-family: var(--font-code);
+  font-size: 0.95em;
+}
+
+/* Basic responsive adjustments */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
 }

@@ -1,56 +1,98 @@
-/* Card */
-.card {
-    background-color: white;
-    padding: 20px;
-    min-width: 180px;
-    width: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-  }
-  
-  .card-content {
-    display: flex;
-    flex-direction: column;
-  }
-  .title-icon{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* CSS Variables */
+:root {
+  --card-bg: white;
+  --card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --text-primary: #4a5568;
+  --success-color: #48bb78;
+  --danger-color: #f56565;
+  --icon-bg: #f56565;
+  --icon-color: #fdfdfd;
+  --border-radius: 10px;
+  --spacing-sm: 5px;
+  --spacing-md: 10px;
+  --spacing-lg: 20px;
+}
 
+/* Card Base */
+.card {
+  background-color: var(--card-bg);
+  padding: var(--spacing-lg);
+  min-width: 180px;
+  width: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Content */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.title-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  color: var(--text-primary);
+  font-size: 16px;
+  margin-right: var(--spacing-md);
+  font-weight: 500;
+}
+
+.card-value {
+  font-size: 24px;
+  font-weight: bold;
+  margin: var(--spacing-md) 0;
+}
+
+/* Change Indicators */
+.card-change {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.card-change.green {
+  color: var(--success-color);
+}
+
+.card-change.red {
+  color: var(--danger-color);
+}
+
+/* Icon Styling */
+.card-icon {
+  color: var(--icon-color);
+  padding: var(--spacing-sm);
+  background-color: var(--icon-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .card {
+    min-width: 150px;
+    padding: var(--spacing-md);
   }
-  
-  .card-title {
-    color: #4a5568;
-    font-size: 16px;
-    margin-right: 10px;
-    
-  }
-  
+
   .card-value {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 10px 0;
+    font-size: 20px;
   }
-  
-  .card-change {
-    font-size: 12px;
-  }
-  
-  .card-change.green {
-    color: #48bb78;
-  }
-  
-  .card-change.red {
-    color: #f56565;
-  }
-  
-  .card-icon {
-    /*font-size: 30px;
-    */color: #fdfdfd;
-    padding: 5px;
-    background-color:#f56565 ;
-    border-radius: 50%;
-  }
-  
+}

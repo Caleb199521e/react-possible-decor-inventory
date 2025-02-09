@@ -1,153 +1,196 @@
+/* CSS Variables */
+:root {
+  --primary-color: #6c63ff;
+  --primary-hover: #574bd7;
+  --background-color: #f9f9f9;
+  --white: #ffffff;
+  --border-color: #ccc;
+  --text-primary: #333;
+  --text-secondary: #555;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --border-radius: 5px;
+  --spacing-sm: 5px;
+  --spacing-md: 10px;
+  --spacing-lg: 20px;
+}
+
 /* General Layout */
 .products-page-layout {
-    display: flex;
+  display: flex;
+}
+
+.main-content {
+  flex-grow: 1;
+  background-color: var(--background-color);
+  margin-left: 300px;
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-lg);
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm) var(--spacing-md);
+  width: 300px;
+  background-color: var(--white);
+}
+
+.search-icon {
+  color: #aaa;
+  margin-right: var(--spacing-sm);
+}
+
+.search-bar {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Button Styles */
+.add-new-btn {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-new-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Table Styling */
+.products-table {
+  margin-top: var(--spacing-md);
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f4f4f4;
+}
+
+thead th {
+  padding: var(--spacing-md);
+  text-align: left;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: #fafafa;
+}
+
+td {
+  padding: var(--spacing-md);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+/* Product Details */
+.product-details {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.product-details img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.action-buttons button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  transition: transform 0.2s ease;
+}
+
+.action-buttons button:hover {
+  transform: scale(1.1);
+}
+
+.view-btn { color: var(--primary-color); }
+.edit-btn { color: #4caf50; }
+.delete-btn { color: #f44336; }
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--spacing-lg);
+  gap: var(--spacing-sm);
+}
+
+.pagination button {
+  padding: 8px 12px;
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pagination button.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .main-content {
+    margin-left: 250px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
   }
   
-  .main-content {
-    flex-grow: 1;
-    /* padding: 20px; */
-    background-color: #f9f9f9;
-    margin-left: 300px;
-  }
   .products-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 20px;
-    margin-top: 20px;
-
+    flex-direction: column;
+    gap: var(--spacing-md);
   }
   
   .search-container {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px 10px;
-    width: 300px;
-  }
-  
-  .search-icon {
-    color: #aaa;
-    margin-right: 5px;
-  }
-  
-  .search-bar {
-    border: none;
-    outline: none;
-    /* width: 100%; */
-    font-size: 14px;
-  }
-  
-  .add-new-btn {
-    padding: 10px 20px;
-    background-color: #6c63ff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .add-new-btn:hover {
-    background-color: #574bd7;
-  }
-  
-  /* Table Styling */
-  .products-table {
-    margin-top: 10px;
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  table {
     width: 100%;
-    border-collapse: collapse;
   }
   
-  thead {
-    background-color: #f4f4f4;
+  .products-table {
+    overflow-x: auto;
   }
-  
-  thead th {
-    padding: 10px;
-    text-align: left;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  tbody tr {
-    border-bottom: 1px solid #eee;
-  }
-  
-  tbody tr:hover {
-    background-color: #fafafa;
-  }
-  
-  td {
-    padding: 10px;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .product-details {
-    display: flex;
-    align-items: center;
-  }
-  
-  .product-details img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    border-radius: 5px;
-  }
-  
-  .action-buttons {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .action-buttons button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-  }
-  
-  .view-btn {
-    color: #6c63ff;
-  }
-  
-  .edit-btn {
-    color: #4caf50;
-  }
-  
-  .delete-btn {
-    color: #f44336;
-  }
-  
-  /* Pagination */
-  .pagination {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    gap: 5px;
-  }
-  
-  .pagination button {
-    padding: 8px 12px;
-    background-color: #f4f4f4;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .pagination button.active {
-    background-color: #6c63ff;
-    color: white;
-  }
+}

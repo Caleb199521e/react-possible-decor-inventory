@@ -1,69 +1,130 @@
-/* TopSellingProductsCard.css */
+/* CSS Variables */
+:root {
+  --card-bg: white;
+  --card-radius: 8px;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --border-color: #eaeaea;
+  --table-header-bg: #f9fafb;
+  --pagination-bg: #f4f4f4;
+  --active-pagination: #6c63ff;
+  --spacing-sm: 5px;
+  --spacing-md: 10px;
+  --spacing-lg: 15px;
+  --spacing-xl: 20px;
+  --transition-speed: 0.2s;
+}
+
+/* Card Base */
 .top-selling-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: var(--spacing-xl);
+  box-shadow: var(--card-shadow);
+  transition: box-shadow var(--transition-speed) ease;
+}
+
+.top-selling-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.top-selling-card h3 {
+  font-size: 18px;
+  margin-bottom: var(--spacing-lg);
+  font-weight: bold;
+}
+
+/* Table Styles */
+.top-selling-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.top-selling-card table th,
+.top-selling-card table td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.top-selling-card table th {
+  background-color: var(--table-header-bg);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Product Cell */
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.product-cell img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform var(--transition-speed) ease;
+}
+
+.product-cell img:hover {
+  transform: scale(1.1);
+}
+
+.product-cell span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--spacing-xl);
+  gap: var(--spacing-sm);
+}
+
+.pagination button {
+  padding: 8px 12px;
+  background-color: var(--pagination-bg);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.pagination button:hover {
+  background-color: darken(var(--pagination-bg), 5%);
+}
+
+.pagination button.active {
+  background-color: var(--active-pagination);
+  color: white;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .top-selling-card {
+    padding: var(--spacing-md);
   }
-  
-  .top-selling-card h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: bold;
-  }
-  
+
   .top-selling-card table {
-    width: 100%;
-    border-collapse: collapse;
+    display: block;
+    overflow-x: auto;
   }
-  
+
   .top-selling-card table th,
   .top-selling-card table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #eaeaea;
+    white-space: nowrap;
   }
-  
-  .top-selling-card table th {
-    background-color: #f9fafb;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
+
   .product-cell {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    gap: var(--spacing-sm);
   }
-  
+
   .product-cell img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 5px;
+    width: 32px;
+    height: 32px;
   }
-  
-  .product-cell span {
-    font-size: 14px;
-    font-weight: 500;
-  }
-  /* Pagination */
-  .pagination {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    gap: 5px;
-  }
-  
-  .pagination button {
-    padding: 8px 12px;
-    background-color: #f4f4f4;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .pagination button.active {
-    background-color: #6c63ff;
-    color: white;
-  }
+}

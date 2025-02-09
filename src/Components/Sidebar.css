@@ -1,60 +1,104 @@
+/* CSS Variables */
+:root {
+  --sidebar-bg: #1a202c;
+  --sidebar-width: 250px;
+  --text-color: white;
+  --hover-bg: #2d3748;
+  --active-color: #7c3aed;
+  --logout-color: #f56565;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+  --border-radius: 5px;
+  --icon-size: 24px;
+  --transition-speed: 0.3s;
+}
+
+/* Sidebar Base */
 .sidebar {
-  background-color: #1a202c;
-  color: white;
-  width: 250px;
-  /* min-height: 100vh; */
+  background-color: var(--sidebar-bg);
+  color: var(--text-color);
+  width: var(--sidebar-width);
   height: 100%;
-  padding: 20px;
- position: fixed;
- 
+  padding: var(--spacing-lg);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
 }
 
+/* Logo Styles */
 .logo {
-  font-size: 24px;
+  font-size: var(--icon-size);
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-lg);
 }
 
+/* Navigation */
 .sidebar nav ul {
   list-style: none;
   padding: 0;
 }
 
 .sidebar nav ul li {
-  margin: 15px 0;
+  margin: var(--spacing-md) 0;
 }
 
 .sidebar nav ul li a {
-  display: flex;  /* Align icon & text */
-  align-items: center;  /* Vertical alignment */
-  color: white;
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
   text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-  transition: background 0.3s ease;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  transition: background var(--transition-speed) ease;
 }
 
 .sidebar nav ul li a:hover {
-  background: #2d3748;
+  background: var(--hover-bg);
 }
 
 .sidebar nav ul li a.active {
-  color: #7c3aed;
+  color: var(--active-color);
+  background: rgba(124, 58, 237, 0.1);
 }
 
+/* Icon Styles */
 .sidebar-icon {
-  font-size: 24px; /* Set icon size */
-  margin-right: 10px; /* Space between icon & text */
+  font-size: var(--icon-size);
+  margin-right: var(--spacing-sm);
 }
 
+/* Logout Section */
 .logout {
-  margin-top: 30px;
+  margin-top: var(--spacing-xl);
+  border-top: 1px solid var(--hover-bg);
+  padding-top: var(--spacing-lg);
 }
 
 .logout a {
   display: flex;
   align-items: center;
-  color: #f56565;
+  color: var(--logout-color);
   text-decoration: none;
-  padding: 10px;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed) ease;
+}
+
+.logout a:hover {
+  background: rgba(245, 101, 101, 0.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-speed) ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
 }

@@ -1,31 +1,79 @@
-/* StockAlertCard.css */
+/* CSS Variables */
+:root {
+  --card-bg: white;
+  --card-radius: 8px;
+  --card-padding: 20px;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --border-color: #eaeaea;
+  --text-primary: #333;
+  --alert-color: #dc2626;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --transition-speed: 0.3s;
+}
+
+/* Card Base */
 .stock-alert-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
+  transition: box-shadow var(--transition-speed) ease;
+}
+
+.stock-alert-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.stock-alert-card h3 {
+  font-size: 18px;
+  margin-bottom: var(--spacing-md);
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+/* Table Styles */
+.stock-alert-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stock-alert-card table th,
+.stock-alert-card table td {
+  padding: var(--spacing-sm);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.stock-alert-card table th {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stock-alert-card table td {
+  font-size: 14px;
+}
+
+/* Alert Styles */
+.stock-alert-card table .low-stock {
+  color: var(--alert-color);
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .stock-alert-card {
+    padding: var(--spacing-sm);
   }
-  
-  .stock-alert-card h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: bold;
-  }
-  
+
   .stock-alert-card table {
-    width: 100%;
-    border-collapse: collapse;
+    display: block;
+    overflow-x: auto;
   }
-  
+
   .stock-alert-card table th,
   .stock-alert-card table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #eaeaea;
+    white-space: nowrap;
   }
-  
-  .stock-alert-card table .low-stock {
-    color: red;
-    font-weight: bold;
-  }
-  
+}
