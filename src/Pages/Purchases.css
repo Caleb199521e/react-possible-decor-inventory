@@ -1,0 +1,107 @@
+.purchases-page {
+    display: flex;
+  }
+  
+  .purchases-container {
+    flex: 1;
+    margin-left: 300px;
+  }
+  
+  .purchases-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .purchases-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+  }
+  
+  .filter-btn,
+  .create-btn {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .purchases-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .purchases-table th,
+  .purchases-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .purchases-table th {
+    background-color: #f9fafb;
+  }
+  
+  .product-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .payment.paid {
+    color: #48bb78;
+    font-weight: bold;
+  }
+  
+  .payment.due {
+    color: #e53e3e;
+    font-weight: bold;
+  }
+  
+  .payment.partial {
+    color: #eab308;
+    font-weight: bold;
+  }
+  
+  .status.received {
+    color: #48bb78;
+  }
+  
+  .status.pending {
+    color: #eab308;
+  }
+  
+  .status.ordered {
+    color: #4a90e2;
+  }
+  
+  .edit-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+  }
