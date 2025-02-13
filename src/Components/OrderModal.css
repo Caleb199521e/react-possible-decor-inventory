@@ -101,8 +101,9 @@
 /* Modal Footer */
 .modal-footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 15px;
+    
 }
 
 /* Invoice Button */
