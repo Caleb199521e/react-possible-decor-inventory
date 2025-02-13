@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../Components/Sidebar";
 import Header from "../Components/Header";
-import './Orders.css';
+import OrderModal from "../Components/OrderModal";
+import "./Orders.css";
+
 const orders = [
   {
     id: "#456787",
@@ -12,6 +14,10 @@ const orders = [
     payment: "Paid",
     status: "Delivered",
     image: "/images/artificial-flower.jpg",
+    date: "09-09-2024",
+    address: "No.7, Oxford Street, Osu-Accra",
+    tax: "GH₵5",
+    shippingCost: "GH₵40",
   },
   {
     id: "#569870",
@@ -22,9 +28,13 @@ const orders = [
     payment: "Pending",
     status: "Processing",
     image: "/images/marble-sheet.jpg",
+    date: "10-10-2024",
+    address: "No.10, Ridge Street, Accra",
+    tax: "GH₵10",
+    shippingCost: "GH₵50",
   },
   {
-    id: "#569870",
+    id: "#569871",
     product: "Wall panel",
     customer: "Mrs. Mary Adzo",
     quantity: 1,
@@ -32,10 +42,24 @@ const orders = [
     payment: "Pending",
     status: "Delivering",
     image: "/images/wall-panel.jpg",
+    date: "12-12-2024",
+    address: "No.25, East Legon, Accra",
+    tax: "GH₵8",
+    shippingCost: "GH₵30",
   },
 ];
 
 export default function Orders() {
+  const [selectedOrder, setSelectedOrder] = useState(null);
+
+  const openModal = (order) => {
+    setSelectedOrder(order);
+  };
+
+  const closeModal = () => {
+    setSelectedOrder(null);
+  };
+
   return (
     <div className="orders-page">
       <Sidebar />
@@ -86,7 +110,7 @@ export default function Orders() {
                     {order.status}
                   </td>
                   <td>
-                    <button className="edit-btn">✏️</button>
+                    <button className="edit-btn" onClick={() => openModal(order)}>✏️</button>
                     <button className="delete-btn">🗑️</button>
                   </td>
                 </tr>
@@ -95,6 +119,9 @@ export default function Orders() {
           </table>
         </div>
       </div>
+
+      {/* Render Order Modal */}
+      {selectedOrder && <OrderModal order={selectedOrder} onClose={closeModal} />}
     </div>
   );
 }
