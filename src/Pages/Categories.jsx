@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from '../Components/Sidebar';
 import Header from '../Components/Header';
+import { Visibility, Edit, Delete } from "@mui/icons-material";
 import './Categories.css';
 
 export default function Categories() {
@@ -46,9 +47,9 @@ export default function Categories() {
                                  <td className={i % 2 === 0 ? "status-active" : "status-inactive"}>{i % 2 === 0 ? "Active" : "Inactive"}</td>
                                  <td>{new Date().toLocaleDateString()}</td>
                                  <td>
-                                     <button className="action-view">👁</button>
-                                     <button className="action-edit">✏️</button>
-                                     <button className="action-delete">🗑️</button>
+                                     <button className="action-view"><Visibility /></button>
+                                     <button className="action-edit"><Edit /></button>
+                                     <button className="action-delete"><Delete /></button>
                                  </td>
                              </tr>
                          ))}

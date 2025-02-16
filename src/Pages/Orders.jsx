@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "../Components/Sidebar";
 import Header from "../Components/Header";
 import OrderModal from "../Components/OrderModal";
+import { Visibility, Edit, Delete } from "@mui/icons-material";
 import "./Orders.css";
 
 const orders = [
@@ -61,17 +62,22 @@ export default function Orders() {
   };
 
   return (
-    <div className="orders-page">
+    <div className="orders-container">
       <Sidebar />
-      <div className="orders-container">
+      <div className="main">
         <Header />
-        <div className="orders-content">
-          <h2>Orders</h2>
-          <div className="orders-actions">
+        <main className="orders-main">
+          <div className="orders-header">
+            <h1>Orders</h1>
+            <p>Dashboard {'>'} Orders</p>
+          </div>
+          <div className="orders-controls">
             <input type="text" placeholder="Search" className="search-bar" />
-            <button className="filter-btn">Filter</button>
-            <button className="export-btn">Export All Orders</button>
-            <button className="add-btn">+ Add New</button>
+            <div className="order-controls">
+              <button className="filter-btn">Filter</button>
+              <button className="export-btn">Export All Orders</button>
+              <button className="add-btn">+ Add New</button>
+            </div>          
           </div>
           <table className="orders-table">
             <thead>
@@ -110,14 +116,15 @@ export default function Orders() {
                     {order.status}
                   </td>
                   <td>
-                    <button className="edit-btn" onClick={() => openModal(order)}>✏️</button>
-                    <button className="delete-btn">🗑️</button>
+                    <button className="edit-btn" onClick={() => openModal(order)}><Edit /></button>
+                    <button className="delete-btn"><Delete /></button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
+        
+        </main>
       </div>
 
       {/* Render Order Modal */}

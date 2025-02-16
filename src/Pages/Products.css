@@ -1,14 +1,13 @@
-General Layout
-.products-page-layout {
+.products-container {
     display: flex;
   }
   
-  .main-content {
-    flex-grow: 1;
-    /* padding: 20px; */
-    background-color: #f9f9f9;
-    margin-left: 300px;
-    margin-top:20px;
+  .products-main {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f7fa;
+    /* margin-left: 300px; */
+    margin-top: 20px;
   }
   .products-header {
     display: flex;
@@ -16,32 +15,37 @@ General Layout
     align-items: center;
     margin-bottom: 20px;
     padding: 20px;
-    margin-top: 20px;
+  }
 
+  .products-header h1 {
+    font-size: 24px;
+    color: #333;
   }
-  
-  .search-container {
+
+  .products-header p {
+    color: #888;
+  }
+  .products-controls {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px 10px;
+    margin-bottom: 20px;
+  }
+  .products-search {
     width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+  .products-buttons {
+    display: flex;
+    gap: 10px;
   }
   
-  .search-icon {
-    color: #aaa;
-    margin-right: 5px;
-  }
   
-  .search-bar {
-    border: none;
-    outline: none;
-    /* width: 100%; */
-    font-size: 14px;
-  }
   
-  .add-new-btn {
+  .filter-btn, .add-new-btn {
     padding: 10px 20px;
     background-color: #6c63ff;
     color: white;
@@ -56,11 +60,11 @@ General Layout
   
   /* Table Styling */
   .products-table {
-    margin-top: 30px;
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
   }
   
   table {

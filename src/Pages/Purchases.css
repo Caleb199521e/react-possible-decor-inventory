@@ -1,22 +1,36 @@
-.purchases-page {
+.purchases-container {
     display: flex;
   }
   
-  .purchases-container {
+  .purchases-main{
     flex: 1;
-    margin-left: 300px;
-  }
-  
-  .purchases-content {
-    background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f5f7fa;
+    /* margin-left: 300px; */
+    margin-top: 20px;
   }
   
-  .purchases-actions {
+  .purchases-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  .purchases-header h1 {
+    font-size: 24px;
+    color: #333;
+  }
+
+  .purchases-header p {
+    color: #888;
+  }
+  
+  .purchases-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
   }
   
@@ -24,10 +38,10 @@
     width: 300px;
     padding: 10px;
     border: 1px solid #e2e8f0;
-    border-radius: 5px;
+    border-radius: 4px;
   }
   
-  .filter-btn,
+  select,
   .create-btn {
     background-color: #4a90e2;
     color: white;
@@ -35,6 +49,7 @@
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 10px;
   }
   
   .purchases-table {

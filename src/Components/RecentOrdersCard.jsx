@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@mui/material";
 import "./RecentOrdersCard.css";
+import { Edit, Delete } from "@mui/icons-material";
 
 const RecentOrdersCard = () => {
   const orders = [
@@ -77,8 +78,8 @@ const RecentOrdersCard = () => {
                 {order.status}
               </td>
               <td>
-                <button className="edit-btn">✏️</button>
-                <button className="delete-btn">🗑️</button>
+                <button className="edit-btn"> <Edit /></button>
+                <button className="delete-btn"><Delete /></button>
               </td>
             </tr>
           ))}

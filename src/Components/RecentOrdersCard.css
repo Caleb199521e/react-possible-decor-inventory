@@ -42,6 +42,7 @@
   
   .orders-table td {
     border-bottom: 1px solid #f1f3f5;
+    vertical-align: middle;
   }
   
   .orders-table img {

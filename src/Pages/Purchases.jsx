@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "../Components/Sidebar";
 import Header from "../Components/Header";
+import { Edit, Delete } from "@mui/icons-material";
 import "./Purchases.css";
 
 const purchases = [
@@ -28,16 +29,28 @@ const purchases = [
 
 export default function Purchases() {
   return (
-    <div className="purchases-page">
+    <div className="purchases-container">
       <Sidebar />
-      <div className="purchases-container">
+      <div className="main">
         <Header />
-        <div className="purchases-content">
-          <h2>Purchases List</h2>
-          <div className="purchases-actions">
+
+        <main className="purchases-main">
+          <div className="purchases-header">
+            <h1>Purchases</h1>
+            <p>Dashboard {'>'} Purchases</p>
+          </div>
+        <div className="purchases-controls">
             <input type="text" placeholder="Search" className="search-bar" />
-            <button className="filter-btn">Filter</button>
-            <button className="create-btn">+ Create Purchase</button>
+            <div className="purchases-buttons">
+              <select name="filter" id="filter" className="filter-select">
+                <option value="all">All</option>
+                <option value="received">Received</option>
+                <option value="pending">Pending</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+              <button className="add-btn">+ Add New</button>
+            </div>
+                      
           </div>
           <table className="purchases-table">
             <thead>
@@ -70,14 +83,14 @@ export default function Purchases() {
                   <td>{purchase.total}</td>
                   <td className={`payment ${purchase.payment.toLowerCase()}`}>{purchase.payment}</td>
                   <td>
-                    <button className="edit-btn">✏️</button>
-                    <button className="delete-btn">🗑️</button>
+                    <button className="edit-btn"> <Edit /></button>
+                    <button className="delete-btn"><Delete /></button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
+        </main>
       </div>
     </div>
   );
