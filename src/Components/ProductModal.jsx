@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ProductModal.css';
 
-export default function ProductModal({ isOpen, onClose, onSave }) {
+export default function ProductModal({ isOpen, onClose, onSave, initialProduct }) {
   const [product, setProduct] = React.useState({
-    name: '',
+    product: '',
     price: '',
     category: '',
     stock: '',
+    image: '',
   });
+
+  useEffect(() => {
+    if (initialProduct) {
+      setProduct(initialProduct);
+    }
+  }, [initialProduct]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,6 +22,20 @@ export default function ProductModal({ isOpen, onClose, onSave }) {
       ...prevProduct,
       [name]: value,
     }));
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setProduct((prevProduct) => ({
+        ...prevProduct,
+        image: reader.result,
+      }));
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -28,11 +49,11 @@ export default function ProductModal({ isOpen, onClose, onSave }) {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>Add New Product</h2>
+        <h2>{initialProduct ? 'Edit Product' : 'Add New Product'}</h2>
         <form onSubmit={handleSubmit}>
           <label>
             Product:
-            <input type="text" name="name" value={product.name} onChange={handleChange} required />
+            <input type="text" name="product" value={product.product} onChange={handleChange} required />
           </label>
           <label>
             Price:
@@ -45,6 +66,10 @@ export default function ProductModal({ isOpen, onClose, onSave }) {
           <label>
             Stock:
             <input type="number" name="stock" value={product.stock} onChange={handleChange} required />
+          </label>
+          <label>
+            Image:
+            <input type="file" name="image" onChange={handleFileChange} required />
           </label>
           <div className="modal-buttons">
             <button type="button" onClick={onClose}>Cancel</button>

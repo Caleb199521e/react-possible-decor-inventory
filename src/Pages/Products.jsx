@@ -35,9 +35,22 @@ export default function Products() {
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentProduct, setCurrentProduct] = useState(null);
+  const [filter, setFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleAddNewClick = () => {
+    setCurrentProduct(null);
     setIsModalOpen(true);
+  };
+
+  const handleEditClick = (product) => {
+    setCurrentProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleDeleteClick = (productId) => {
+    setProducts((prevProducts) => prevProducts.filter((product) => product.id !== productId));
   };
 
   const handleCloseModal = () => {
@@ -45,11 +58,37 @@ export default function Products() {
   };
 
   const handleSaveProduct = (newProduct) => {
-    setProducts((prevProducts) => [
-      ...prevProducts,
-      { ...newProduct, id: `#${Math.floor(Math.random() * 1000000)}` },
-    ]);
+    if (currentProduct) {
+      setProducts((prevProducts) =>
+        prevProducts.map((product) =>
+          product.id === currentProduct.id ? { ...newProduct, id: currentProduct.id } : product
+        )
+      );
+    } else {
+      setProducts((prevProducts) => [
+        ...prevProducts,
+        { ...newProduct, id: `#${Math.floor(Math.random() * 1000000)}` },
+      ]);
+    }
   };
+
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredProducts = products.filter((product) => {
+    if (filter !== "all" && product.category.toLowerCase() !== filter.toLowerCase()) {
+      return false;
+    }
+    if (searchQuery && !product.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+      return false;
+    }
+    return true;
+  });
 
   return (
     <div className="products-container">
@@ -64,13 +103,20 @@ export default function Products() {
           </div>
 
           <div className="products-controls">
-            <input type="text" placeholder="Search" className="products-search" />
+            <input
+              type="text"
+              placeholder="Search"
+              className="products-search"
+              value={searchQuery}
+              onChange={handleSearchChange}
+            />
             <div className="products-buttons">
-              <select name="filter" id="filter" className="filter-select">
+              <select name="filter" id="filter" className="filter-select" onChange={handleFilterChange}>
                 <option value="all">All</option>
-                <option value="received">Received</option>
-                <option value="pending">Pending</option>
-                <option value="cancelled">Cancelled</option>
+                <option value="Wall Paper">Wall Paper</option>
+                <option value="Flower">Flower</option>
+                <option value="Wall Panel">Wall Panel</option>
+                {/* Add more categories as needed */}
               </select>
               <button className="add-new-btn" onClick={handleAddNewClick}>+ Add New</button>
             </div>
@@ -89,7 +135,7 @@ export default function Products() {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {filteredProducts.map((product) => (
                 <tr key={product.id}>
                   <td>
                     <input type="checkbox" />
@@ -106,10 +152,10 @@ export default function Products() {
                     <button className="view-btn">
                       <Visibility />
                     </button>
-                    <button className="edit-btn">
+                    <button className="edit-btn" onClick={() => handleEditClick(product)}>
                       <Edit />
                     </button>
-                    <button className="delete-btn">
+                    <button className="delete-btn" onClick={() => handleDeleteClick(product.id)}>
                       <Delete />
                     </button>
                   </td>
@@ -128,7 +174,12 @@ export default function Products() {
         </main>
       </div>
 
-      <ProductModal isOpen={isModalOpen} onClose={handleCloseModal} onSave={handleSaveProduct} />
+      <ProductModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onSave={handleSaveProduct}
+        initialProduct={currentProduct}
+      />
     </div>
   );
 }
