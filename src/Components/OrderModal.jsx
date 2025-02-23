@@ -2,7 +2,22 @@ import React, { useState } from "react";
 import "./OrderModal.css";
 
 export default function OrderModal({ order, onClose, onSave }) {
-  const [formData, setFormData] = useState(order ? { ...order } : {});
+  const defaultOrder = {
+    id: "",
+    product: "",
+    customer: "",
+    quantity: 1,
+    amount: "",
+    payment: "Pending",
+    status: "Processing",
+    image: "",
+    date: "",
+    address: "",
+    tax: "",
+    shippingCost: "",
+  };
+
+  const [formData, setFormData] = useState(order ? { ...order } : defaultOrder);
 
   if (!order) return null;
 
@@ -64,7 +79,7 @@ export default function OrderModal({ order, onClose, onSave }) {
           </div>
           <div className="order-column">
             <label>Shipping Cost</label>
-            <input type="text" name="shipping" value={formData.shipping} onChange={handleChange} />
+            <input type="text" name="shippingCost" value={formData.shippingCost} onChange={handleChange} />
           </div>
 
           <div className="order-column full-width">
@@ -76,7 +91,8 @@ export default function OrderModal({ order, onClose, onSave }) {
             <label>Order Status</label>
             <select name="status" value={formData.status} onChange={handleChange} className={`status-badge status-${formData.status.toLowerCase()}`}>
               <option value="Pending">Pending</option>
-              <option value="Shipped">Shipped</option>
+              <option value="Processing">Processing</option>
+              <option value="Delivering">Delivering</option>
               <option value="Delivered">Delivered</option>
               <option value="Cancelled">Cancelled</option>
             </select>
@@ -85,8 +101,8 @@ export default function OrderModal({ order, onClose, onSave }) {
           <div className="order-column">
             <label>Payment Status</label>
             <select name="payment" value={formData.payment} onChange={handleChange} className={`status-badge status-${formData.payment.toLowerCase()}`}>
+              <option value="Pending">Pending</option>
               <option value="Paid">Paid</option>
-              <option value="Unpaid">Unpaid</option>
               <option value="Refunded">Refunded</option>
             </select>
           </div>

@@ -1,122 +1,146 @@
 .purchases-container {
-    display: flex;
-  }
-  
-  .purchases-main{
-    flex: 1;
-    padding: 20px;
-    background-color: #f5f7fa;
-    /* margin-left: 300px; */
-    margin-top: 20px;
-  }
-  
-  .purchases-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 20px;
-  }
+  display: flex;
+}
 
-  .purchases-header h1 {
-    font-size: 24px;
-    color: #333;
-  }
+.main {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f7fa;
+ 
+}
 
-  .purchases-header p {
-    color: #888;
-  }
-  
-  .purchases-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .search-bar {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #e2e8f0;
-    border-radius: 4px;
-  }
-  
-  select,
-  .create-btn {
-    background-color: #4a90e2;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .purchases-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .purchases-table th,
-  .purchases-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #e2e8f0;
-  }
-  
-  .purchases-table th {
-    background-color: #f9fafb;
-  }
-  
-  .product-info {
-    display: flex;
-    align-items: center;
-  }
-  
-  .product-info img {
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-  
-  .payment.paid {
-    color: #48bb78;
-    font-weight: bold;
-  }
-  
-  .payment.due {
-    color: #e53e3e;
-    font-weight: bold;
-  }
-  
-  .payment.partial {
-    color: #eab308;
-    font-weight: bold;
-  }
-  
-  .status.received {
-    color: #48bb78;
-  }
-  
-  .status.pending {
-    color: #eab308;
-  }
-  
-  .status.ordered {
-    color: #4a90e2;
-  }
-  
-  .edit-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .delete-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: red;
-  }
+
+
+.purchases-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.purchases-header h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.purchases-header p {
+  color: #888;
+}
+
+.purchases-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.date-range-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.date-filter {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-bar {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.right-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.purchases-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #28a745;
+  color: white;
+}
+
+.purchases-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.purchases-table th,
+.purchases-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.purchases-table th {
+  background-color: #f9fafb;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+}
+
+.product-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.status.received {
+  color: #48bb78;
+}
+
+.status.pending {
+  color: #eab308;
+}
+
+.status.cancelled {
+  color: #e53e3e;
+}
+
+.payment.paid {
+  color: #48bb78;
+  font-weight: bold;
+}
+
+.payment.due {
+  color: #eab308;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
