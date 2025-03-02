@@ -1,0 +1,98 @@
+/* Base styles and resets */
+:root {
+  --primary-blue: #60a5fa;
+  --primary-dark: #1e2633;
+  --text-light: rgba(255, 255, 255, 0.7);
+  --border-light: rgba(255, 255, 255, 0.1);
+}
+
+/* Enhance sidebar interactivity */
+.sidebar {
+  transform: translateX(0);
+  will-change: transform;
+}
+
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+/* Improve menu items accessibility */
+.menu-item {
+  position: relative;
+  outline: none;
+}
+
+.menu-item:focus-visible {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: -2px;
+}
+
+/* Enhanced card interactions */
+.stat-card {
+  cursor: pointer;
+  backface-visibility: hidden;
+}
+
+.stat-card:focus-within {
+  outline: 2px solid var(--primary-blue);
+}
+
+/* Improved chart responsiveness */
+.chart-container {
+  min-height: 200px;
+  max-height: 400px;
+  height: 40vh;
+}
+
+/* Enhanced responsive breakpoints */
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .header-down {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .stat-card-value {
+    font-size: 24px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .sidebar,
+  .header {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .stat-card,
+  .sales-purchase-card,
+  .recent-orders-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .stat-card,
+  .menu-item {
+    transition: none;
+  }
+}
