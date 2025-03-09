@@ -11,11 +11,16 @@ import {
   ExitToApp 
 } from "@mui/icons-material";
 import "../Components/Sidebar.css";
+import logo from "./Assets/Possible Decor Logo.png"; // Adjust the path as necessary
 
 export default function Sidebar() {
   return (
     <div className="sidebar">
-      <h1 className="logo">Possible Decor</h1>
+      <div className="logo-container">
+        <img src={logo} alt="Possible Decor Logo" className="logo-image" />
+        <h1 className="logo">Possible Decor</h1>
+      </div>
+      
       <nav>
         <ul>
           <li>

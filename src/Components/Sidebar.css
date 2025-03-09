@@ -8,12 +8,24 @@
  position: fixed;
  
 }
+.logo-container {
+  display: flex;
+  align-items: center;
+  
+}
+
+.logo-image {
+  width: 40px;
+  height: 30px;
+  margin-right: 5px;
+}
 
 .logo {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 20px;
 }
+
+
 
 .sidebar nav ul {
   list-style: none;
