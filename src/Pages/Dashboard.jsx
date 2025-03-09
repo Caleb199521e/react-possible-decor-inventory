@@ -12,24 +12,23 @@ import { AttachMoney,
         NewReleases, 
         Category,
         CalendarToday,
-       
  } 
  from "@mui/icons-material";
-
+import { formatGhanaCedi } from '../utils/currencyFormatter';
 import "./Dashboard.css";
 
 export default function Dashboard() {
   const topSellingProducts = [
     {
       name: "Wall Paper",
-      price: "$299",
+      price: formatGhanaCedi(299),
       orders: 34,
       stock: 510,
       image: "https://via.placeholder.com/50",
     },
     {
       name: "Flower",
-      price: "$500",
+      price: formatGhanaCedi(500),
       orders: 28,
       stock: 417,
       image: "https://via.placeholder.com/50",
@@ -51,26 +50,22 @@ export default function Dashboard() {
         {/* Header */}
         <Header />
 
-
         {/* Dashboard Content */}
         <main className="content">
           <div className="header-down">
-                  
-                  <p>Activity</p>
-          
-                  <div className="weekly">
-                  <span>
-                    <CalendarToday fontSize="small" /> 10 Dec - 16 Dec
-                  </span>
-                  <span>Weekly</span>
-                  </div>
-                  
-                </div>
+            <p>Activity</p>
+            <div className="weekly">
+              <span>
+                <CalendarToday fontSize="small" /> 10 Dec - 16 Dec
+              </span>
+              <span>Weekly</span>
+            </div>
+          </div>
           {/* Cards Section */}
           <div className="cards-section">
             <Card
               title="Inventory Value"
-              value="$54,890"
+              value={formatGhanaCedi(54890)}
               icon={<AttachMoney />}
               change="+14.5% from last week"
               color="green"
@@ -105,18 +100,17 @@ export default function Dashboard() {
           </div>
           
           <div className="recent-orders-card">
-          <RecentOrdersCard />
+            <RecentOrdersCard />
           </div>
 
           <div className="bottom-section">
             <StockAlertCard />
             <ProductSummaryCard
-               totalStock={totalStock}
+              totalStock={totalStock}
               inStock={inStock}
               toBeReceived={toBeReceived}
-          />
+            />
           </div>
-          
         </main>
       </div>
     </div>

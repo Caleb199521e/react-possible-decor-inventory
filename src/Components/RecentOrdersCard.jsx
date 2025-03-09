@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@mui/material";
 import "./RecentOrdersCard.css";
 import { Edit, Delete } from "@mui/icons-material";
+import { formatGhanaCedi } from '../utils/currencyFormatter';
 
 const RecentOrdersCard = () => {
   const orders = [
@@ -11,7 +12,7 @@ const RecentOrdersCard = () => {
       orderId: "#456787",
       customerName: "Caleb Ampong",
       quantity: 2,
-      amount: "$598",
+      amount: formatGhanaCedi(598),
       payment: "Paid",
       status: "Delivered",
     },
@@ -21,7 +22,7 @@ const RecentOrdersCard = () => {
       orderId: "#569870",
       customerName: "Mary Adzo A.",
       quantity: 3,
-      amount: "$1,500",
+      amount: formatGhanaCedi(1500),
       payment: "Pending",
       status: "Processing",
     },
@@ -31,7 +32,7 @@ const RecentOrdersCard = () => {
       orderId: "#569870",
       customerName: "Kelvin Okornore",
       quantity: 3,
-      amount: "$597",
+      amount: formatGhanaCedi(597),
       payment: "Pending",
       status: "Processing",
     },
@@ -62,8 +63,8 @@ const RecentOrdersCard = () => {
         <tbody>
           {orders.map((order, index) => (
             <tr key={index}>
-               <td>
-                      <input type="checkbox" />
+              <td>
+                <input type="checkbox" />
               </td>
               <td>
                 <img src={order.productImage} alt={order.productName} />
@@ -78,7 +79,7 @@ const RecentOrdersCard = () => {
                 {order.status}
               </td>
               <td>
-                <button className="edit-btn"> <Edit /></button>
+                <button className="edit-btn"><Edit /></button>
                 <button className="delete-btn"><Delete /></button>
               </td>
             </tr>
