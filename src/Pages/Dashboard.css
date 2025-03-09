@@ -1,10 +1,8 @@
 .dashboard {
   display: flex;
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  flex-wrap: nowrap;
-  
-  
+  /* flex-wrap: wrap; */
 }
 
 /* Sidebar Styles (Scoped within Dashboard if necessary) */
@@ -21,7 +19,7 @@
   gap: 15px;
   color:black;
   justify-content: space-between;
-  padding: 0px 20px ;
+  padding: 0 20px ;
   
 }
 .weekly {
