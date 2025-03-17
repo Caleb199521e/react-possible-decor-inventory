@@ -6,6 +6,9 @@ const userRoutes = require('./routes/userRoutes');
 require('dotenv').config();
 
 const app = express();
+app.get("/", (req, res) => {
+  res.send("Welcome to the Node.js Server!");
+});
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
@@ -16,7 +19,7 @@ let mongoClient;
 // Async function to start the server
 async function startServer() {
   try {
-    mongoClient = await connectDB();
+     await connectDB();
     
     app.use('/api/users', userRoutes);
 

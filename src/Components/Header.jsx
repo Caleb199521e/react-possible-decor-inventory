@@ -3,9 +3,11 @@ import { useLocation } from "react-router-dom";
 import { Notifications } from "@mui/icons-material";
 import Avatar from "@mui/material/Avatar";
 import "./Header.css";
+import { useUser } from './context/UserContext';
 
 export default function Header() {
   const location = useLocation();
+  const { user } = useUser();
 
   // Map routes to page names
   const pageNames = {
@@ -33,13 +35,13 @@ export default function Header() {
           </button>
           <div className="profile">
             <Avatar
-              alt="Pamela"
-              src="https://via.placeholder.com/150"
+              alt={user?.name || "User"}
+              src={user?.avatar || "https://via.placeholder.com/150"}
               sx={{ width: 40, height: 40 }}
             />
             <div className="profile-text">
-              <p>Pamela PB</p>
-              <span>Manager</span>
+              <p>{user?.name || "User"}</p>
+              <span>{user?.role || "Role"}</span>
             </div>
           </div>
         </div>

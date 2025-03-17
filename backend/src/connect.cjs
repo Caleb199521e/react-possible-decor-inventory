@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 const connectDB = async () => {
@@ -6,24 +6,10 @@ const connectDB = async () => {
     throw new Error('ATLAS_URI is not defined in environment variables');
   }
 
-  const client = new MongoClient(process.env.ATLAS_URI);
-
   try {
-    await client.connect();
-    console.log("Connected to MongoDB!");
-
-    const db = client.db("possibledecorinventory");
-    const collections = await db.listCollections().toArray();
-
-    if (collections.length === 0) {
-      console.log("No collections found in the database.");
-    } else {
-      console.log("Collections:");
-      collections.forEach(collection => console.log(collection.name));
-    }
-
-    return client;
-
+    await mongoose.connect(process.env.ATLAS_URI);
+    console.log("Connected to MongoDB with Mongoose!");
+    return mongoose.connection;
   } catch (error) {
     console.error("MongoDB connection error:", error);
     throw error;
