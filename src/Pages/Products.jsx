@@ -1,43 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import Sidebar from "../Components/Sidebar";
 import Header from "../Components/Header";
 import ProductModal from "../Components/ProductModal";
 import { Visibility, Edit, Delete } from "@mui/icons-material";
 import './Products.css';
+import { formatGhanaCedi } from '../utils/currencyFormatter';
 
 export default function Products() {
-  const [products, setProducts] = useState([
-    {
-      id: "#456787",
-      name: "Wall Paper",
-      price: "GH₵299",
-      category: "Wall Paper",
-      stock: 120,
-      image: "https://via.placeholder.com/50",
-    },
-    {
-      id: "#564312",
-      name: "Flower",
-      price: "GH₵500",
-      category: "Flower",
-      stock: 34,
-      image: "https://via.placeholder.com/50",
-    },
-    {
-      id: "#147809",
-      name: "Wall Panel",
-      price: "GH₵199",
-      category: "Wall Panel",
-      stock: 56,
-      image: "https://via.placeholder.com/50",
-    },
-    // Add more products as needed
-  ]);
-
+  const [products, setProducts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
   const [filter, setFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/products');
+        const formattedProducts = response.data.map(product => ({
+          ...product,
+          price: formatGhanaCedi(product.price)
+        }));
+        setProducts(formattedProducts);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleAddNewClick = () => {
     setCurrentProduct(null);
@@ -49,26 +41,35 @@ export default function Products() {
     setIsModalOpen(true);
   };
 
-  const handleDeleteClick = (productId) => {
-    setProducts((prevProducts) => prevProducts.filter((product) => product.id !== productId));
+  const handleDeleteClick = async (productId) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/products/${productId}`);
+      setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
+    } catch (error) {
+      console.error('Error deleting product:', error);
+    }
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
 
-  const handleSaveProduct = (newProduct) => {
-    if (currentProduct) {
-      setProducts((prevProducts) =>
-        prevProducts.map((product) =>
-          product.id === currentProduct.id ? { ...newProduct, id: currentProduct.id } : product
-        )
-      );
-    } else {
-      setProducts((prevProducts) => [
-        ...prevProducts,
-        { ...newProduct, id: `#${Math.floor(Math.random() * 1000000)}` },
-      ]);
+  const handleSaveProduct = async (newProduct) => {
+    try {
+      if (currentProduct) {
+        const response = await axios.put(`http://localhost:5000/api/products/${currentProduct._id}`, newProduct);
+        setProducts((prevProducts) =>
+          prevProducts.map((product) =>
+            product._id === currentProduct._id ? response.data : product
+          )
+        );
+      } else {
+        const response = await axios.post('http://localhost:5000/api/products', newProduct);
+        setProducts((prevProducts) => [...prevProducts, response.data]);
+      }
+      setIsModalOpen(false);
+    } catch (error) {
+      console.error('Error saving product:', error);
     }
   };
 
@@ -136,7 +137,7 @@ export default function Products() {
             </thead>
             <tbody>
               {filteredProducts.map((product) => (
-                <tr key={product.id}>
+                <tr key={product._id}>
                   <td>
                     <input type="checkbox" />
                   </td>
@@ -144,7 +145,7 @@ export default function Products() {
                     <img src={product.image} alt={product.name} />
                     {product.name}
                   </td>
-                  <td>{product.id}</td>
+                  <td>{product._id}</td>
                   <td>{product.price}</td>
                   <td>{product.category}</td>
                   <td>{product.stock}</td>
@@ -155,7 +156,7 @@ export default function Products() {
                     <button className="edit-btn" onClick={() => handleEditClick(product)}>
                       <Edit />
                     </button>
-                    <button className="delete-btn" onClick={() => handleDeleteClick(product.id)}>
+                    <button className="delete-btn" onClick={() => handleDeleteClick(product._id)}>
                       <Delete />
                     </button>
                   </td>

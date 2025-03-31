@@ -1,18 +1,28 @@
-// server.js
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./connect.cjs');
 const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productsRoutes'); // ✅ Add this line
+const categoryRoutes = require('./routes/categoryRoutes'); 
 require('dotenv').config();
 
 const app = express();
 app.get("/", (req, res) => {
   res.send("Welcome to the Node.js Server!");
 });
+
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
-app.use(express.json());
+// Increase request size limit
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  console.log('Request body:', req.body);
+  next();
+});
 
 let mongoClient;
 
@@ -22,6 +32,8 @@ async function startServer() {
      await connectDB();
     
     app.use('/api/users', userRoutes);
+    app.use('/api/products', productRoutes); // ✅ Add this line
+    app.use('/api/categories', categoryRoutes); // ✅ Add this line
 
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);

@@ -3,16 +3,21 @@ import './ProductModal.css';
 
 export default function ProductModal({ isOpen, onClose, onSave, initialProduct }) {
   const [product, setProduct] = React.useState({
-    product: '',
+    name: '',
     price: '',
     category: '',
     stock: '',
     image: '',
+    currency: 'GH₵', // Default currency
   });
 
   useEffect(() => {
     if (initialProduct) {
-      setProduct(initialProduct);
+      setProduct((prev) => ({
+        ...prev,
+        ...initialProduct,
+        currency: initialProduct.currency || 'GH₵',
+      }));
     }
   }, [initialProduct]);
 
@@ -53,11 +58,20 @@ export default function ProductModal({ isOpen, onClose, onSave, initialProduct }
         <form onSubmit={handleSubmit}>
           <label>
             Product:
-            <input type="text" name="product" value={product.product} onChange={handleChange} required />
+            <input type="text" name="name" value={product.name} onChange={handleChange} required />
           </label>
           <label>
             Price:
-            <input type="text" name="price" value={product.price} onChange={handleChange} required />
+            <input type="number" name="price" value={product.price} onChange={handleChange} required />
+          </label>
+          <label>
+            Currency:
+            <select name="currency" value={product.currency} onChange={handleChange} required>
+              <option value="GH₵">GH₵ (Ghana Cedi)</option>
+              <option value="USD">USD (US Dollar)</option>
+              <option value="EUR">EUR (Euro)</option>
+              <option value="GBP">GBP (British Pound)</option>
+            </select>
           </label>
           <label>
             Category:

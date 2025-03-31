@@ -61,7 +61,7 @@ export default function Sidebar() {
         </ul>
       </nav>
       <div className="logout">
-        <Link to="/logout" className="sidebar-link">
+        <Link to="/" className="sidebar-link">
           <ExitToApp className="sidebar-icon" /> <span>Logout</span>
         </Link>
       </div>
