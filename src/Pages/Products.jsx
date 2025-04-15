@@ -6,6 +6,7 @@ import ProductModal from "../Components/ProductModal";
 import { Visibility, Edit, Delete } from "@mui/icons-material";
 import './Products.css';
 import { formatGhanaCedi } from '../utils/currencyFormatter';
+import { ToastContainer, toast } from 'react-toastify';  // Import toastify
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -24,6 +25,7 @@ export default function Products() {
         }));
         setProducts(formattedProducts);
       } catch (error) {
+        toast.error('Error fetching products'); // Show error toast
         console.error('Error fetching products:', error);
       }
     };
@@ -45,7 +47,9 @@ export default function Products() {
     try {
       await axios.delete(`http://localhost:5000/api/products/${productId}`);
       setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
+      toast.success('Product deleted successfully'); // Show success toast
     } catch (error) {
+      toast.error('Error deleting product'); // Show error toast
       console.error('Error deleting product:', error);
     }
   };
@@ -63,12 +67,15 @@ export default function Products() {
             product._id === currentProduct._id ? response.data : product
           )
         );
+        toast.success('Product updated successfully'); // Show success toast
       } else {
         const response = await axios.post('http://localhost:5000/api/products', newProduct);
         setProducts((prevProducts) => [...prevProducts, response.data]);
+        toast.success('Product added successfully'); // Show success toast
       }
       setIsModalOpen(false);
     } catch (error) {
+      toast.error('Error saving product'); // Show error toast
       console.error('Error saving product:', error);
     }
   };
@@ -117,7 +124,6 @@ export default function Products() {
                 <option value="Wall Paper">Wall Paper</option>
                 <option value="Flower">Flower</option>
                 <option value="Wall Panel">Wall Panel</option>
-                {/* Add more categories as needed */}
               </select>
               <button className="add-new-btn" onClick={handleAddNewClick}>+ Add New</button>
             </div>
@@ -181,6 +187,8 @@ export default function Products() {
         onSave={handleSaveProduct}
         initialProduct={currentProduct}
       />
+
+      <ToastContainer /> {/* Add this ToastContainer to render toasts */}
     </div>
   );
 }

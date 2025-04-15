@@ -9,6 +9,8 @@ import Orders from './Pages/Orders';
 import Purchases from './Pages/Purchases';
 import Settings from './Pages/Settings';
 import ProtectedRoute from './Components/ProtectedRoute';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -24,7 +26,9 @@ function App() {
         <Route path="/orders" element={<ProtectedRoute element={Orders} />} />
         <Route path="/purchases" element={<ProtectedRoute element={Purchases} />} />
         <Route path="/settings" element={<ProtectedRoute element={Settings} />} />
+       
       </Routes>
+      <ToastContainer position="top-right" autoClose={3000} />
     </Router>
   );
 }

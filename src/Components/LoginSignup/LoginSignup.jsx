@@ -6,6 +6,8 @@ import password_icon from '../Assets/password.png';
 import email_icon from '../Assets/email.png';
 import axios from 'axios';
 import { useUser } from '../context/UserContext';
+import { toast } from 'react-toastify'; // Import the toast function
+import 'react-toastify/dist/ReactToastify.css'; // Import the styles
 
 export const LoginSignup = () => {
   const [action, setAction] = useState("Login"); // Set initial state to "Login"
@@ -18,13 +20,17 @@ export const LoginSignup = () => {
   const navigate = useNavigate();
   const { setUser } = useUser();
 
+  
+
   const handleSignup = async () => {
     if (!name || !email || !password || !confirmPassword) {
       setError("All fields are required");
+      toast.error("All fields are required!"); // Show toast error
       return;
     }
     if (password !== confirmPassword) {
       setError("Passwords do not match");
+      toast.error("Passwords do not match!"); // Show toast error
       return;
     }
 
@@ -40,9 +46,11 @@ export const LoginSignup = () => {
       console.log('Signup successful:', response.data);
       localStorage.setItem('token', response.data.token);
       setUser(response.data.user); // Set user information in context
+      toast.success("Signup successful!"); // Show toast success
       navigate('/dashboard');
     } catch (error) {
       setError(error.response?.data?.message || "Signup error");
+      toast.error(error.response?.data?.message || "Signup error"); // Show toast error
       console.error('Signup error:', error.response?.data);
     } finally {
       setLoading(false);
@@ -52,6 +60,7 @@ export const LoginSignup = () => {
   const handleLogin = async () => {
     if (!email || !password) {
       setError("Email and password are required");
+      toast.error("Email and password are required!"); // Show toast error
       return;
     }
 
@@ -65,9 +74,11 @@ export const LoginSignup = () => {
       console.log('Login successful:', response.data);
       localStorage.setItem('token', response.data.token);
       setUser(response.data.user); // Set user information in context
+      toast.success("Login successful!"); // Show toast success
       navigate('/dashboard');
     } catch (error) {
       setError(error.response?.data?.message || "Login error");
+      toast.error(error.response?.data?.message || "Login error"); // Show toast error
       console.error('Login error:', error.response?.data);
     } finally {
       setLoading(false);
